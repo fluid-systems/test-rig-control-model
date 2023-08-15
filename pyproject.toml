@@ -1,0 +1,89 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "project-name"
+dynamic = ["version"]
+description = "This project does this and that."
+readme = "README.md"
+authors = [
+    { name = "Michaela Lestakova", email = "michaela.lestakova@fst.tu-darmstadt.de" },
+    { name = "Kevin Logan", email = "kevin.logan@fst.tu-darmstadt.de" }
+]
+keywords = ["rdm", "plot"]
+license = {file = "LICENSE"}
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3 :: Only",
+]
+dependencies = [
+"numpy",
+"pandas",
+"matplotlib",
+]
+requires-python = ">=3.9"
+
+[project.optional-dependencies]
+dev = [
+    "black>=22.8.0",
+    "isort>=5.8.0",
+    "pylint>=2.15.3"
+    ]
+test = [
+    "pytest>=7.1.2",
+    "pytest-cov>=3.0.0",
+    "mypy>=0.971",
+    "pandas-stubs>=1.4.3.220822",
+    "types-tqdm>=4.64.5",
+    "types-pytz>=2022.2.1.0"
+    ]
+doc = ["sphinx>=5.1.1", "sphinx-rtd-theme>=1.0.0", "sphinx-autoapi",]
+
+[project.urls]
+repository = "https://git.rwth-aachen.de/path-to-project"
+documentation = "https://path-to-project.readthedocs.io/en/latest/"
+
+[tool.setuptools.dynamic]
+version = {attr = "project_name.__version__"} # this is the module; must contain an __init__.py file with __version__ in the header
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+
+[tool.mypy]
+strict = true
+show_error_codes = true
+[[tool.mypy.overrides]]
+module = [
+    "matplotlib",
+    "matplotlib.axes",
+    "matplotlib.pyplot",
+    "OMPython"
+]
+ignore_missing_imports = true
+
+[tool.black]
+line_length = 120
+
+[tool.isort]
+atomic = true
+profile = "black"
+line_length = 120
+skip_gitignore = true
+
+[tool.pylint.main]
+fail-under = 9.9
+
+[tool.pylint.design]
+max-args = 9
+max-attributes = 13
+max-locals = 16
+
+[tool.pylint.format]
+max-line-length = 120
+[tool.pylint."messages control"]
+disable = ["attribute-defined-outside-init"]
+
