@@ -1,28 +1,21 @@
 {
-    "python.formatting.provider": "black",
-    "python.sortImports.args": [
-        "--profile=black"
-    ],
-    "python.linting.enabled": true,
-    "python.linting.lintOnSave": true,
-    "python.linting.flake8Enabled": true,
-    "python.linting.flake8Args": [
-        "--filename=*.py",
-        "--exclude=env/",
-        "--max-line-length=120",
-        "--docstring-convention=google"
-    ],
-    
-    "autoDocstring.docstringFormat": "google",
-
     "[python]": {
-        "editor.rulers": [120],
-        "editor.renderWhitespace": "none",
-        "editor.formatOnSave": false,
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true,
+        "editor.rulers": [
+            80
+        ],
+        "editor.renderWhitespace": "trailing",
         "editor.codeActionsOnSave": {
             "source.organizeImports": true
         }
     },
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "autoDocstring.docstringFormat": "google",
     "files.exclude": {
         "**/__pycache__": true
     },
