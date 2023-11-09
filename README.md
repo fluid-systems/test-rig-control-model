@@ -26,7 +26,7 @@ If the authentication fails, you might need to add the ssh key beforehands - thi
 
 ### Create a virtual environment to get the required packages
 #### Microsoft Windows
-on Windows, run
+On Windows, run
 
 ```cmd
 py -m venv env
@@ -56,7 +56,7 @@ Update the `requirements.txt` file when you install new packages.
 
 For more detailed instructions, check https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/.
 #### GNU/Linux and Apple macOS
-on Linux distributions (Ubuntu, Raspberry Pi OS, etc.), run
+On Linux distributions (Ubuntu, Raspberry Pi OS, etc.), run
 
 ```cmd
 python3 -m venv env
