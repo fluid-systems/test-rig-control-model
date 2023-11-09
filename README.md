@@ -25,6 +25,7 @@ If the authentication fails, you might need to add the ssh key beforehands - thi
 
 
 ### Create a virtual environment to get the required packages
+#### Microsoft Windows
 On Windows, run
 
 ```cmd
@@ -54,7 +55,28 @@ py -m pip install -r requirements.txt
 Update the `requirements.txt` file when you install new packages.
 
 For more detailed instructions, check https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/.
+#### GNU/Linux and Apple macOS
+On Linux distributions (Ubuntu, Raspberry Pi OS, etc.), run
 
+```cmd
+python3 -m venv env
+```
+To create the virtual environment.
+
+```cmd
+source ./env/bin/activate
+```
+To activate a virtual environment.
+
+```cmd
+which python3
+```
+To check the location of your Python interpreter.
+
+```cmd
+python3 -m pip install -r requirements.txt
+```
+To install the packages in the `requirements.txt`.
 # Writing Good Code
 
 ## Language Rules
