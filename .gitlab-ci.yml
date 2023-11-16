@@ -43,11 +43,10 @@ lint:
 pages:
   stage: deploy
   script:
-  - cd docs
-  - sphinx-build -b html . public
+  - sphinx-build -b html docs/ public
   artifacts:
     paths:
-    - docs/public
+    - public
   rules:
     - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
 
