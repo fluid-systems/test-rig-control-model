@@ -24,36 +24,33 @@ cache:
     - venv/
 
 before_script:
-  - python --version  # For debugging
+  - python --version # For debugging
   - pip install virtualenv
   - virtualenv venv
   - source venv/bin/activate
   - pip install -r requirements.txt
 
 lint:
-  tags: 
-  - env:docker
+  tags:
+    - env:docker
   script:
     #-  python setup.py test
     #- pip install flake8  # you can also use tox
     - pwd
     - ls -lh
     - flake8 . --filename=*.py --exclude=venv/ --max-line-length=80
-
-pages:
-  stage: deploy
-  script:
-  - sphinx-build -b html docs/ public
-  artifacts:
-    paths:
-    - public
-  rules:
-    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
-
-
+# pages:
+#   stage: deploy
+#   script:
+#   - sphinx-build -b html docs/ public
+#   artifacts:
+#     paths:
+#     - public
+#   rules:
+#     - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
 
 # unit-test:
-#   tags: 
+#   tags:
 #   - env:docker
 #   script:
 #     - pytest
