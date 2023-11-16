@@ -3,15 +3,14 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "project-name"
+name = "python-project-template"
 dynamic = ["version"]
 description = "This project does this and that."
 readme = "README.md"
 authors = [
-    { name = "Michaela Lestakova", email = "michaela.lestakova@fst.tu-darmstadt.de" },
-    { name = "Kevin Logan", email = "kevin.logan@fst.tu-darmstadt.de" }
+    { name = "Some Author", email = "some.author@tu-darmstadt.de" }
 ]
-keywords = ["rdm", "plot"]
+keywords = ["FST", "engineering"]
 license = {file = "LICENSE"}
 classifiers = [
     "License :: OSI Approved :: MIT License",
@@ -47,7 +46,7 @@ repository = "https://git.rwth-aachen.de/path-to-project"
 documentation = "https://path-to-project.readthedocs.io/en/latest/"
 
 [tool.setuptools.dynamic]
-version = {attr = "project_name.__version__"} # this is the module; must contain an __init__.py file with __version__ in the header
+version = {attr = "python-project-template.__version__"} # this is the module; must contain an __init__.py file with __version__ in the header
 
 [tool.setuptools.packages.find]
 where = ["."]
