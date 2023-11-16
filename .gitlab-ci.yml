@@ -40,6 +40,19 @@ lint:
     - ls -lh
     - flake8 . --filename=*.py --exclude=venv/ --max-line-length=80
 
+pages:
+  stage: deploy
+  script:
+  - cd docs
+  - sphinx-build -b html . public
+  artifacts:
+    paths:
+    - docs/public
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+
+
+
 # unit-test:
 #   tags: 
 #   - env:docker
