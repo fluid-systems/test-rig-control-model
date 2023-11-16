@@ -3,6 +3,8 @@ numpy
 pandas
 matplotlib
 sphinx # documentation
+sphinx_rtd_theme # documentation
+sphinx-autoapi # documentation
 flake8 # linting
 black # autoformatting
 mypy # typechecking

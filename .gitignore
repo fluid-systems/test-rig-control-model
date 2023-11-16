@@ -5,3 +5,6 @@
 !.gitignore
 !requirements.txt
 !tests/
+!docs/
+!docs/*.rst
+!python-project-template/

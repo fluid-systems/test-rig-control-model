@@ -2,7 +2,7 @@
 
 [[_TOC_]]
 
-## Common Infrastructure
+## Prerequisities
 ### Install git
 Install git on your operating system following [these instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
@@ -13,12 +13,13 @@ After the installation is finished, you can install extensions of your choice. T
 
 Note that there are hundreds of other extensions that can support you in various tasks - it is worth looking for tips and tricks online. We leave this up to you and name only the most basic ones for the start.
 
+## Getting Started
 ### Clone this repository wherever you want to have it
 Access the folder/directory of your choice and clone (make a local copy) of this repository on your machine by running
 
 :warning: ADJUST THIS LINK
 ```bash
-git clone https://git.rwth-aachen.de/fst-tuda/projects/emergencity/project-name.git
+git clone https://git.rwth-aachen.de/fst-tuda/projects/project-name.git
 ```
 
 If the authentication fails, you might need to add the ssh key beforehands - this will be the case if you want to access GitLab from a new machine.
@@ -77,6 +78,25 @@ To check the location of your Python interpreter.
 python3 -m pip install -r requirements.txt
 ```
 To install the packages in the `requirements.txt`.
+
+### Code Structure
+The source code (all modules that contain your classes and functions) is located in the directory `python-project-template` (the name of this project), i.e. we are following a flat layout (see https://ta_alex.pages.rwth-aachen.de/action-items/action-items/55_software_packaging_python/#project-setup). This directory is tracked by git.
+
+For using the source code, it is recommended to reate a script in the root directory, for example `main.py` or a Jupyter notebook, e.g. `analysis.ipynb`. This script will in most cases not have to be tracked.
+
+### Generating documentation
+This project contains documentation that can be built using Sphinx. The `.rst` files in the `docs` directory contain developer-defined documentation. The `index.rst` file is the landing page that contains the table of contents. More `.rst` files can be added to explain the code structure, logic or give a minimal example.
+
+The `conf.py` file contains settings used by Sphinx. Among other things, it contains settings to automatically generate API documentation from in-code docstrings.
+
+You can generate the html files by executing the following command from within the pip env:
+
+```cmd
+cd docs
+make html
+```
+The html documentation can be viewed in your browser by opening `docs/_build/html/index.html`.
+
 # Writing Good Code
 
 ## Language Rules
