@@ -7,8 +7,8 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = "python-project-template"
-copyright = "2023, Michaela Lestakova"
-author = "Michaela Lestakova"
+copyright = "2023, Some Author"
+author = "Some Author"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

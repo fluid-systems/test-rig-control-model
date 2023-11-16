@@ -251,14 +251,3 @@ Update the `pyproject.toml` file by filling out the correct metadata, project na
 If you have used a project structure with a `src` folder, you will need to replace the `"."` by `"src"` in `[tool.setuptools.packages.find]`.
 
 To try out packaging before deploying a version you can be proud of into the world, use the test instance, TestPyPI (as stated in the packaging flow). The adjustment to PyPI is minor.
-
-In order to be able to send your project over to PyPI (or TestPyPI), you will need to generate an API token and **set the variable `CI_PYPI_TOKEN` correctly** by following these steps:
-1. Login to PyPI or TestPyPI
-2. Go to `Account Configuration` -> `API Token` and click on `Add an API Token`
-3. Copy the generated token (you will **not** be able to do this later)
-4. Go to your project on GitLab, open `Settings` -> `CI/CD` and scroll down to `Variables`
-5. Click on `Add variable`
-6. Under key, paste `CI_PYPI_TOKEN`; under Value, paste the API token you have copied
-
-The `CI_PYPI_TOKEN` is referenced in the `pyproject.toml` file for authentification purposes.
-
