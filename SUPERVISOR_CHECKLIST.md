@@ -19,7 +19,7 @@ The README.md file is written mainly for developers and will need to be adjusted
 ## Enabling the CI/CD Pipeline
 To have GitLab automatically run the CI/CD pipeline upon every commit, push and merge request, you need to enable GitLab runners.
 
-To do this, go to `Settings` > `CI/CD` > `Runners`. Under `Project runners`, you will find the available project runners. Enable both `fst121-alpine-dockerind` runners. You can also enable group runners for the project.
+To do this, go to `Settings` > `CI/CD` > `Runners`. Under `Group runners`, check whether there is a runner available (`fst-121-docker`). If you have the owner role, you can also enable project runners.
 
 ## Documentation Via GitLab Pages
 The `.gitlab-ci.yml` file contains script for generating GitLab Pages with Sphinx documentation of the project. These are commented out by default. Uncomment them to include them in the CI/CD pipeline.
