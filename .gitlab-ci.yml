@@ -49,9 +49,8 @@ lint:
 #   rules:
 #     - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
 
-# unit-test:
-#   tags:
-#   - env:docker
-#   script:
-#     - pytest
-
+unit-test:
+  tags:
+    - env:docker
+  script:
+    - pytest

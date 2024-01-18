@@ -7,4 +7,4 @@
 !tests/
 !docs/
 !docs/*.rst
-!python-project-template/
+!python_project_template/

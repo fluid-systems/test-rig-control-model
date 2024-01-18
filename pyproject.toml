@@ -3,7 +3,7 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "python-project-template"
+name = "python_project_template"
 dynamic = ["version"]
 description = "This project does this and that."
 readme = "README.md"
@@ -46,7 +46,7 @@ repository = "https://git.rwth-aachen.de/path-to-project"
 documentation = "https://path-to-project.readthedocs.io/en/latest/"
 
 [tool.setuptools.dynamic]
-version = {attr = "python-project-template.__version__"} # this is the module; must contain an __init__.py file with __version__ in the header
+version = {attr = "python_project_template.__version__"} # this is the module; must contain an __init__.py file with __version__ in the header
 
 [tool.setuptools.packages.find]
 where = ["."]
