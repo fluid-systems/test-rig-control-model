@@ -38,7 +38,7 @@ lint:
     #- pip install flake8  # you can also use tox
     - pwd
     - ls -lh
-    - flake8 . --filename=*.py --exclude=venv/ --max-line-length=80
+    - flake8 . --filename=*.py --exclude=venv/ --max-line-length=88
 # pages:
 #   stage: deploy
 #   script:

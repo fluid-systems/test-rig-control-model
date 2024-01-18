@@ -3,7 +3,7 @@
         "editor.defaultFormatter": "ms-python.black-formatter",
         "editor.formatOnSave": true,
         "editor.rulers": [
-            80
+            88
         ],
         "editor.renderWhitespace": "trailing",
         "editor.codeActionsOnSave": {
@@ -20,6 +20,6 @@
         "**/__pycache__": true
     },
     "flake8.args": [
-        "--max-line-length=80"
+        "--max-line-length=88"
     ]
 }
