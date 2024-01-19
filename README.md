@@ -27,7 +27,7 @@ If the authentication fails, you might need to add the ssh key beforehands - thi
 
 ### Create a virtual environment to get the required packages
 #### Microsoft Windows
-On Windows, run
+On Windows, open VS Code and open a terminal. In the terminal, run
 
 ```cmd
 py -m venv env
@@ -56,6 +56,9 @@ py -m pip install -r requirements.txt
 Update the `requirements.txt` file when you install new packages.
 
 For more detailed instructions, check https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/.
+
+Note for jupyter notebooks: it is possible to open and run Jupyter notebooks in VS Code. To use the created virtual environment `env` , you will need to select it as the kernel. VS Code has currently trouble finding newly created virtual environments. To solve this issue, open Command Palette in VS Code and execute `Developer: Reload Window`. After that, the `env` should be listed in the list of kernels. 
+
 #### GNU/Linux and Apple macOS
 On Linux distributions (Ubuntu, Raspberry Pi OS, etc.), run
 
