@@ -162,13 +162,13 @@ Follow [Guido](https://en.wikipedia.org/wiki/Guido_van_Rossum)'s recommendations
 
   <tr>
     <td>Packages</td>
-    <td><code>short_lower</code></td>
+    <td><code>shortlower</code></td>
     <td></td>
   </tr>
 
   <tr>
     <td>Modules</td>
-    <td><code>short_with_under</code></td>
+    <td><code>short_lower</code></td>
     <td><code>_module_in_c</code></td>
   </tr>
 
