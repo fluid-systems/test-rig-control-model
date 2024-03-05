@@ -24,7 +24,7 @@ To do this, go to `Settings` > `CI/CD` > `Runners`. Under `Group runners`, check
 ## Documentation Via GitLab Pages
 The `.gitlab-ci.yml` file contains script for generating GitLab Pages with Sphinx documentation of the project. These are commented out by default. Uncomment them to include them in the CI/CD pipeline.
 
-You will find the link to the generated GitLab Pages under `Settings > Pages`. It will look something like this:
+You will find the link to the generated GitLab Pages under `Deploy > Pages`. It will look something like this:
 
 https://fst-tuda.pages.rwth-aachen.de/project-templates/python-project-template/
 
