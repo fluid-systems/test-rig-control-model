@@ -45,7 +45,10 @@ Before you can start installing or using packages in your virtual environment yo
 You can confirm you’re in the virtual environment by checking the location of your Python interpreter:
 
 ```cmd
+# for cmd run
 where python
+# for powershell run
+where.exe python
 ```
 Tell pip to install all of the packages in the `requirements.txt` file using the -r flag:
 
