@@ -2,6 +2,7 @@ python_version > "3.10"
 numpy
 pandas
 matplotlib
+notebook
 sphinx # documentation
 sphinx_rtd_theme # documentation
 sphinx-autoapi # documentation
