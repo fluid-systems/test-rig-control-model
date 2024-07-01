@@ -1,13 +1,12 @@
-python_version > "3.10"
 numpy
 pandas
 matplotlib
 notebook
+
 sphinx # documentation
 sphinx_rtd_theme # documentation
 sphinx-autoapi # documentation
-flake8 # linting
-black # autoformatting
+ruff # linting and autoformatting
 mypy # typechecking
 pytest # unit testing
 
