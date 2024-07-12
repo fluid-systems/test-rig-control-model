@@ -27,9 +27,8 @@ requires-python = ">=3.9"
 
 [project.optional-dependencies]
 dev = [
-    "black>=22.8.0",
-    "isort>=5.8.0",
-    "pylint>=2.15.3"
+    "ruff",
+    "mypy",
     ]
 test = [
     "pytest>=7.1.2",
@@ -37,7 +36,7 @@ test = [
     "mypy>=0.971",
     "pandas-stubs>=1.4.3.220822",
     "types-tqdm>=4.64.5",
-    "types-pytz>=2022.2.1.0"
+    "types-pytz>=2022.2.1.0",
     ]
 doc = ["sphinx>=5.1.1", "sphinx-rtd-theme>=1.0.0", "sphinx-autoapi",]
 
