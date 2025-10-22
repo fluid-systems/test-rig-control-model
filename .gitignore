@@ -8,3 +8,4 @@
 !docs/
 !docs/*.rst
 !test_rig_control_model/
+!.pre-commit-config.yaml
