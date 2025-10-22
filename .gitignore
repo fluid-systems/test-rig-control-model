@@ -3,7 +3,7 @@
 !*.py
 !.vscode
 !.gitignore
-!requirements.txt
+!poetry.lock
 !tests/
 !docs/
 !docs/*.rst
