@@ -6,9 +6,9 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = "python-project-template"
-copyright = "2023, Some Author"
-author = "Some Author"
+project = "test_rig_control_model"
+copyright = "2025, Kevin Logan"
+author = "Kevin Logan"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -23,7 +23,7 @@ extensions = [
 ]
 
 napoleon_google_docstring = True
-autoapi_dirs = ["../python-project-template"]
+autoapi_dirs = ["../test_rig_control_model"]
 
 templates_path = ["_templates"]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]

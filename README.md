@@ -19,7 +19,7 @@ Access the folder/directory of your choice and clone (make a local copy) of this
 
 :warning: ADJUST THIS LINK
 ```bash
-git clone https://git.rwth-aachen.de/fst-tuda/projects/project-name.git
+git clone git@git.rwth-aachen.de:fst-tuda/projects/emergencity/resilince-demonstrator/test-rig-control-model.git
 ```
 
 If the authentication fails, you might need to add the ssh key beforehands - this will be the case if you want to access GitLab from a new machine.

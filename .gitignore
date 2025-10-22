@@ -7,4 +7,4 @@
 !tests/
 !docs/
 !docs/*.rst
-!python_project_template/
+!test_rig_control_model/
