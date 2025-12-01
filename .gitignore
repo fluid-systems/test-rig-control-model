@@ -1,6 +1,7 @@
 *
 
 !*.py
+!*.ipynb
 !.vscode
 !.gitignore
 !poetry.lock
@@ -8,4 +9,5 @@
 !docs/
 !docs/*.rst
 !test_rig_control_model/
+!notebooks/
 !.pre-commit-config.yaml
