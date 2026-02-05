@@ -158,8 +158,10 @@ class EWCMDESystem:
             self.pump_coeffs_2.append(pump_coeffs[2])
 
         self.c_d = []
+        self.a_0 = []
         for valve in self.valves.values():
             self.c_d.append(valve["valve_coefficient"])
+            self.a_0.append(np.pi * (valve["diameter"] / 2) ** 2)
 
         self.state_dict = {
             "q_p": self.pipe_list,
@@ -271,8 +273,8 @@ class EWCMDESystem:
                 + np.diag(self.pump_coeffs_2) @ (ca.diag(self.z_p) @ ca.diag(self.z_p))
             ),
             (
-                (1 / (2 * 9.81))
-                * (inv(np.diag(self.c_d) @ self.D_v)) ** 2
+                (1 / (2 * self.g))
+                * (inv(np.diag(self.c_d) @ np.diag(self.a_0))) ** 2
                 * (ca.diag(self.q_e_v) @ ca.inv(ca.diag(self.z_v))) ** 2
             ),
         )
