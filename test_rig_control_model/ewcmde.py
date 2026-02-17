@@ -365,7 +365,7 @@ class EWCMDESystem:
                 # "linear_solver": "csparse",
                 "collocation_scheme": "radau",
                 "number_of_finite_elements": 1,
-                "interpolation_order": 1,  # 3 or 5 typical
+                "interpolation_order": 1,
                 "rootfinder": "newton",
                 "rootfinder_options": {"abstol": 1e-10, "max_iter": 20},
             },
