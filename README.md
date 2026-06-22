@@ -7,16 +7,17 @@ Applying control methods to water distribution systems requires suitable system 
 The elastic water column model, which has been expanded to incorporate dynamic elements like pumps and valves, is a promising model for control applications due to its formulation in state-space form. However, the model has so far only been validated numerically. The presented work implements the elastic water column model with dynamic elements for water distribution systems in Python and applies it to a small-scale physical test rig. The experimental results are compared with the simulation results to show that the EWCM-DE implementation is a suitable tool for real-time control.
 </details>
 
-The implementation of the elastic water column model with dynamic elements is in the directory `test_rig_control_model`. The directory `notebooks` contains jupyter notebooks corresponding to the scenarios introduced in the aforementioned paper:
+This project contains the implementation of the elastic water column model with dynamic elements (EWCM-DE) as proposed by Imani et al. (2025). The model has been implemented specifically for a test rig built at the Chair of Fluid Systems, TU Darmstadt. An object-oriented EWCM-DE implementation in the form of a DAE system is located under `test_rig_control_model/ewcmde.py`. The simulations of each scenario presented in the paper are performed in Jupyter notebooks located in `notebooks`. 
+
+Visualisation of the simulation results is performed in the notebook `notebooks/plots.py`. By default, this notebook downloads the corresponding reference experimental and simulation datasets from TU Datalib, the institutional repository of TU Darmstadt, in which the data is published as supplementary material:  https://doi.org/10.48328/tudatalib-2263.
 
 
 ## Getting Started
-### Clone this repository wherever you want to have it
+### Clone this repository 
 Clone this repository using
 
-:warning: ADJUST THIS LINK
 ```bash
-git clone git@git.rwth-aachen.de:fst-tuda/projects/emergencity/resilince-demonstrator/test-rig-control-model.git
+git clone git@github.com:fluid-systems/test-rig-control-model.git
 ```
 
 ### Create a virtual environment to get the required packages
@@ -27,7 +28,6 @@ In any case, you need to ensure that the Python version specified in the project
 #### Poetry
 We use `poetry` for package management and virtual environments in this project. You can find installation instructions for `poetry` [here](https://python-poetry.org/docs/#installing-with-the-official-installer).
 
-#### Getting Started
 After cloning the project, open the folder containing it in VS Code. Ensure that the required Python version is the one used by VS Code. When using `pyenv` you can do this by first checking that it is available with
 
 ```bash
