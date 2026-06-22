@@ -5,8 +5,8 @@
 This repository contains the code for the paper "".
 
 <details> <summary> paper abstract </summary>
-Applying control methods to water distribution systems requires suitable system models. 
-The elastic water column model, which has been expanded to incorporate dynamic elements like pumps and valves, is a promising model for control applications due to its formulation in state-space form. However, the model has so far only been validated numerically. The presented work implements the elastic water column model with dynamic elements for water distribution systems in Python and applies it to a small-scale physical test rig. The experimental results are compared with the simulation results to show that the EWCM-DE implementation is a suitable tool for real-time control. 
+Applying control methods to water distribution systems requires suitable system models.
+The elastic water column model, which has been expanded to incorporate dynamic elements like pumps and valves, is a promising model for control applications due to its formulation in state-space form. However, the model has so far only been validated numerically. The presented work implements the elastic water column model with dynamic elements for water distribution systems in Python and applies it to a small-scale physical test rig. The experimental results are compared with the simulation results to show that the EWCM-DE implementation is a suitable tool for real-time control.
 </details>
 
 
@@ -26,57 +26,57 @@ git clone git@git.rwth-aachen.de:fst-tuda/projects/emergencity/resilince-demonst
 
 
 
-### Create a virtual environment and install requirements
-#### Microsoft Windows
-On Windows, open VS Code and open a terminal. In the terminal, run
+### Create a virtual environment to get the required packages
+#### Python with Pyenv
+It is quite useful to use `pyenv` as a tool for managing Python verions installed on your system. You can find instructions on how to download and install `pyenv` for [Linux/Mac](https://github.com/pyenv/pyenv) and [Windows](https://github.com/pyenv-win/pyenv-win/blob/master/docs/installation.md).
+In any case, you need to ensure that the Python version specified in the project's dependencies in `pyproject.toml` (3.12.1) is available.
 
-```cmd
-py -m venv env
-```
-to create a virtual environment called `env`.
+#### Poetry
+We use `poetry` for package management and virtual environments in this project. You can find installation instructions for `poetry` [here](https://python-poetry.org/docs/#installing-with-the-official-installer).
 
+#### Getting Started
+After cloning the project, open the folder containing it in VS Code. Ensure that the required Python version is the one used by VS Code. When using `pyenv` you can do this by first checking that it is available with
 
-Activate the virtual environment:
-
-```cmd
-.\env\Scripts\activate
-```
-
-You can confirm you’re in the virtual environment by checking the location of your Python interpreter:
-
-```cmd
-# for cmd run
-where python
-# for powershell run
-where.exe python
-```
-Install the packages in the `requirements.txt` file using the -r flag:
-
-```cmd
-py -m pip install -r requirements.txt
+```bash
+pyenv versions
 ```
 
-Note for jupyter notebooks: To use the created virtual environment `env` , you will need to select it as the kernel. VS Code sometimes has trouble finding newly created virtual environments. To solve this issue, open Command Palette in VS Code and execute `Developer: Reload Window`. After that, the `env` should be listed in the list of kernels. 
+To make the specific version used in the folder, you can run
 
-#### GNU/Linux and Apple macOS
-On Linux distributions (Ubuntu, Raspberry Pi OS, etc.), run
-
-```cmd
-python3 -m venv env
+```bash
+pyenv local 3.12.1
 ```
-To create the virtual environment.
 
-```cmd
-source ./env/bin/activate
-```
-To activate a virtual environment.
+You need to specify two settings in `poetry` before installing dependencies and creating a virtual environment.
 
-```cmd
-which python3
-```
-To check the location of your Python interpreter.
+Set
 
-```cmd
-python3 -m pip install -r requirements.txt
+```bash
+poetry config virtualenvs.prefer-active-python true
 ```
-To install the packages in the `requirements.txt`.
+
+This ensures that the currently active version of Python gets used for creating the environment. Not doing this will lead to conflicts between the specified dependencies and the Python version in the virtual environment `poetry` creats.
+
+Set
+
+```bash
+poetry config virtualenvs.in-project true
+```
+
+This ensures that the virtual environment gets installed in the project folder rather than the default directory for `poetry`.
+
+Now you can install dependencies and create the virtual environment by running
+
+```bash
+poetry install
+```
+
+Don' forget to select the Python in the created `.venv` as the executable used in VS Code for this project.
+
+#### Pre-commit
+This project uses [pre-commit](https://pre-commit.com/) hooks to ensure that all code that gets pushed to the remote repository complies with formatting and typing standards.
+Install the pre-commit hooks by running
+```
+poetry run pre-commit install
+```
+On every commit, this will run linting and formatting as well as type checking. Accordingly, you need to ensure to fully type your code. Lint and format on save using `ruff` as specified in the development dependencies in the `pyproject.toml`.
