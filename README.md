@@ -1,7 +1,5 @@
 # Overview
 
-[[_TOC_]]
-
 This repository contains the code for the paper "Applying the Elastic Water Column Model with Dynamic Elements to a Physical Test Rig" by Kevin T. Logan, Michaela Lestakova and Peter F. Pelz, presented at the WDSA/CCWI 2026.
 
 <details> <summary> paper abstract </summary>
@@ -9,10 +7,7 @@ Applying control methods to water distribution systems requires suitable system 
 The elastic water column model, which has been expanded to incorporate dynamic elements like pumps and valves, is a promising model for control applications due to its formulation in state-space form. However, the model has so far only been validated numerically. The presented work implements the elastic water column model with dynamic elements for water distribution systems in Python and applies it to a small-scale physical test rig. The experimental results are compared with the simulation results to show that the EWCM-DE implementation is a suitable tool for real-time control.
 </details>
 
-
-
 The implementation of the elastic water column model with dynamic elements is in the directory `test_rig_control_model`. The directory `notebooks` contains jupyter notebooks corresponding to the scenarios introduced in the aforementioned paper:
-
 
 
 ## Getting Started
@@ -23,8 +18,6 @@ Clone this repository using
 ```bash
 git clone git@git.rwth-aachen.de:fst-tuda/projects/emergencity/resilince-demonstrator/test-rig-control-model.git
 ```
-
-
 
 ### Create a virtual environment to get the required packages
 #### Python with Pyenv
@@ -80,3 +73,6 @@ Install the pre-commit hooks by running
 poetry run pre-commit install
 ```
 On every commit, this will run linting and formatting as well as type checking. Accordingly, you need to ensure to fully type your code. Lint and format on save using `ruff` as specified in the development dependencies in the `pyproject.toml`.
+
+## Acknowledgements
+This work has been funded by the LOEWE initiative (Hesse, Germany) within the emergenCITY center [LOEWE/1/12/519/03/05.001(0016)/72].
