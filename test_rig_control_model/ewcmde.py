@@ -7,6 +7,15 @@ from numpy.linalg import inv
 
 
 class EWCMDESystem:
+    """Elastic water column model in state-space formulation.
+
+    Based on:
+    M. Imani, A. Zecchin, W. Zeng, and M. F. Lambert, “Generalization and Analysis of
+    elastic Water Column model for hydraulic transient analysis of water distribution
+    systems,” Journal of Water Resources Planning and Management, vol. 151, no. 10,
+    Aug. 2025, doi: 10.1061/jwrmd5.wreng-6946.
+    """
+
     def __init__(self, A=None, B=None, C=None, E=None, F=None):
         self.A = A
         self.B = B
