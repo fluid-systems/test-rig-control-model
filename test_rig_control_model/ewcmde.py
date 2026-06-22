@@ -89,8 +89,11 @@ class EWCMDESystem:
         self.A_I_p = self.A_p[: len(self.internal_node_list)]
         self.A_I_e = self.A_e[: len(self.internal_node_list)]
 
-        self.A_R_p = self.A_p[-len(self.reservoir_list) :]
-        self.A_R_e = self.A_e[-len(self.reservoir_list) :]
+        if len(self.reservoir_list) >= 1:
+            self.A_R_p = self.A_p[-len(self.reservoir_list) :]
+            self.A_R_e = self.A_e[-len(self.reservoir_list) :]
+        else:
+            self.A_R_p, self.A_R_e = None, None
 
         # L,R,C matrices
         self.L = []  # inductance
@@ -252,17 +255,30 @@ class EWCMDESystem:
             ]
         )
 
-        self.B = np.block(
-            [
+        if self.A_R_p is not None:
+            self.B = np.block(
                 [
-                    self.L_inv @ self.A_R_p.T,
-                    np.zeros(shape=(n, m)),
-                    np.zeros(shape=(n, lz)),
-                ],
-                [np.zeros(shape=(m, r)), -self.G, np.zeros(shape=(m, lz))],
-                [np.zeros(shape=(lz, r)), np.zeros(shape=(lz, m)), self.D],
-            ]
-        )
+                    [
+                        self.L_inv @ self.A_R_p.T,
+                        np.zeros(shape=(n, m)),
+                        np.zeros(shape=(n, lz)),
+                    ],
+                    [np.zeros(shape=(m, r)), -self.G, np.zeros(shape=(m, lz))],
+                    [np.zeros(shape=(lz, r)), np.zeros(shape=(lz, m)), self.D],
+                ]
+            )
+        else:
+            self.B = np.block(
+                [
+                    [
+                        np.zeros(shape=(n, r)),
+                        np.zeros(shape=(n, m)),
+                        np.zeros(shape=(n, lz)),
+                    ],
+                    [np.zeros(shape=(m, r)), -self.G, np.zeros(shape=(m, lz))],
+                    [np.zeros(shape=(lz, r)), np.zeros(shape=(lz, m)), self.D],
+                ]
+            )
 
         self.aF = ca.vertcat(
             -(
@@ -270,12 +286,14 @@ class EWCMDESystem:
                 @ (ca.diag(self.q_e_p) @ ca.diag(self.q_e_p))
                 + np.diag(self.pump_coeffs_1)
                 @ (ca.diag(self.q_e_p) @ ca.diag(self.z_p))
-                + np.diag(self.pump_coeffs_2) @ (ca.diag(self.z_p) @ ca.diag(self.z_p))
+                # + np.diag(self.pump_coeffs_2) @ (ca.diag(self.z_p) @ ca.diag(self.z_p))
+                + np.diag(self.pump_coeffs_2) @ (ca.diag(self.z_p))
             ),
             (
                 (1 / (2 * self.g))
                 * (inv(np.diag(self.c_d) @ np.diag(self.a_0))) ** 2
                 * (ca.diag(self.q_e_v) @ ca.inv(ca.diag(self.z_v))) ** 2
+                # * (ca.diag(self.q_e_v) ** 2 @ ca.inv(ca.diag(self.z_v)))
             ),
         )
 
@@ -283,14 +301,21 @@ class EWCMDESystem:
         self.x_dot = self.A @ self.x + self.EL @ self.q_e - self.F + self.B @ self.u
 
         # set up algebraic equation
-        self.alg_eq = ca.vertcat(
-            (self.q_p[1] - self.q_e[0]),
-            (
-                self.A_I_e.todense().T[1:] @ self.h_I
-                - self.aF
-                + self.A_R_e.todense().T[1:] @ self.h_R
-            ),
-        )
+        if self.A_R_e is not None:
+            self.alg_eq = ca.vertcat(
+                (self.q_p[1] - self.q_e[0]),
+                (
+                    self.A_I_e.todense().T[1:] @ self.h_I
+                    - self.aF
+                    + self.A_R_e.todense().T[1:] @ self.h_R
+                ),
+            )
+        else:
+            self.alg_eq = ca.vertcat(
+                (self.q_p[1] - self.q_e[0]),
+                (self.q_p[3] - self.q_e[1]),
+                (self.A_I_e.todense().T[2:] @ self.h_I - self.aF),
+            )
 
     def set_up_initial_values(self, q_p_0, h_I_0, z_0, q_e_0):
         self.q_p_0 = [q_p_0[i] for i in self.state_dict["q_p"]]
@@ -340,7 +365,7 @@ class EWCMDESystem:
                 # "linear_solver": "csparse",
                 "collocation_scheme": "radau",
                 "number_of_finite_elements": 1,
-                "interpolation_order": 1,  # 3 or 5 typical
+                "interpolation_order": 1,
                 "rootfinder": "newton",
                 "rootfinder_options": {"abstol": 1e-10, "max_iter": 20},
             },
