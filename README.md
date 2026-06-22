@@ -2,7 +2,7 @@
 
 [[_TOC_]]
 
-This repository contains the code for the paper "".
+This repository contains the code for the paper "Applying the Elastic Water Column Model with Dynamic Elements to a Physical Test Rig" by Kevin T. Logan, Michaela Lestakova and Peter F. Pelz, presented at the WDSA/CCWI 2026.
 
 <details> <summary> paper abstract </summary>
 Applying control methods to water distribution systems requires suitable system models.
@@ -55,7 +55,7 @@ Set
 poetry config virtualenvs.prefer-active-python true
 ```
 
-This ensures that the currently active version of Python gets used for creating the environment. Not doing this will lead to conflicts between the specified dependencies and the Python version in the virtual environment `poetry` creats.
+This ensures that the currently active version of Python gets used for creating the environment. Not doing this will lead to conflicts between the specified dependencies and the Python version in the virtual environment `poetry` creates.
 
 Set
 
@@ -71,9 +71,9 @@ Now you can install dependencies and create the virtual environment by running
 poetry install
 ```
 
-Don' forget to select the Python in the created `.venv` as the executable used in VS Code for this project.
+Don't forget to select the Python in the created `.venv` as the executable used in VS Code for this project.
 
-#### Pre-commit
+#### For further development: Pre-commit hooks, linting and autoformatting
 This project uses [pre-commit](https://pre-commit.com/) hooks to ensure that all code that gets pushed to the remote repository complies with formatting and typing standards.
 Install the pre-commit hooks by running
 ```
