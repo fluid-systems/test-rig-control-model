@@ -21,10 +21,10 @@ dependencies = [
     "jupyter (>=1.1.1,<2.0.0)",
     "casadi (>=3.7.2,<4.0.0)",
     "sofirpy @ git+https://github.com/fluid-systems/SOFIRpy@master",
-    "testrig-control-with-sofirpy @ git+ssh://git@git.rwth-aachen.de/fst-tuda/projects/emergencity/resilince-demonstrator/testrig-control-with-sofirpy.git@main",
     "pydantic (==2.9.2)",
     "plotid (>=0.3.2,<0.4.0)",
     "sympy (>=1.14.0,<2.0.0)",
+    "tables (>=3.11.1,<4.0.0)",
 ]
 
 [tool.poetry]
